@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 
 import { site } from "@/lib/site";
-import { useReveal } from "./use-reveal";
+import { revealDelay, useReveal } from "./use-reveal";
 
 export function ContactSection() {
   const t = useTranslations("contato");
@@ -41,11 +41,15 @@ export function ContactSection() {
       <div className="rb-container">
         <div className="ct-grid">
           <div className="ct-col">
-            <h2 className="rv rvd0 ct-title">{t("title")}</h2>
-            <p className="rv rvd2 ct-text">{t("text")}</p>
+            <h2 className="rv ct-title" style={revealDelay(0)}>
+              {t("title")}
+            </h2>
+            <p className="rv ct-text" style={revealDelay(2)}>
+              {t("text")}
+            </p>
           </div>
 
-          <div className="rv rvd3 ct-links">
+          <div className="rv ct-links" style={revealDelay(3)}>
             {links.map((link) => (
               <a
                 key={link.href}

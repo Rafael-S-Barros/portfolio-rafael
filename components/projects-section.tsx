@@ -6,7 +6,7 @@ import { projects } from "@/lib/projects";
 import { ImageSlot } from "./image-slot";
 import { useLocale } from "./providers";
 import { SectionHeading } from "./section-heading";
-import { useReveal } from "./use-reveal";
+import { revealDelay, useReveal } from "./use-reveal";
 
 function ExternalLinkIcon() {
   return (
@@ -53,7 +53,7 @@ export function ProjectsSection() {
 
           return (
             <div key={project.id} className="pj-row" data-side={side}>
-              <div className={`pj-prev rv rvd${i * 2}`}>
+              <div className="pj-prev rv" style={revealDelay(i * 2)}>
                 <div className="pj-frame">
                   <div className="pj-chrome">
                     <div className="pj-dots" aria-hidden="true">
@@ -73,7 +73,7 @@ export function ProjectsSection() {
                 </div>
               </div>
 
-              <div className={`pj-text rv rvd${i * 2 + 1}`}>
+              <div className="pj-text rv" style={revealDelay(i * 2 + 1)}>
                 <h3 className="pj-name">{project.name}</h3>
                 <p className="pj-desc">{project.description[locale]}</p>
 
