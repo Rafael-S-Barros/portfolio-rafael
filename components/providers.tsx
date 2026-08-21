@@ -61,16 +61,29 @@ function subscribe(onStoreChange: () => void) {
   };
 }
 
+// Both snapshots run during render. `localStorage` throws a SecurityError when
+// site data is blocked or the page sits in a partitioned iframe, and an
+// exception here fails the whole hydration — dead theme button, dead locale
+// switch, dead header — so each read falls back to the server default instead.
+
 function readTheme(): Theme {
-  return resolveTheme(
-    localStorage.getItem(THEME_STORAGE_KEY),
-    window.matchMedia(LIGHT_SCHEME_QUERY).matches,
-  );
+  try {
+    return resolveTheme(
+      localStorage.getItem(THEME_STORAGE_KEY),
+      window.matchMedia(LIGHT_SCHEME_QUERY).matches,
+    );
+  } catch {
+    return defaultTheme;
+  }
 }
 
 function readLocale(): Locale {
-  const stored = localStorage.getItem(LOCALE_STORAGE_KEY);
-  return isLocale(stored) ? stored : defaultLocale;
+  try {
+    const stored = localStorage.getItem(LOCALE_STORAGE_KEY);
+    return isLocale(stored) ? stored : defaultLocale;
+  } catch {
+    return defaultLocale;
+  }
 }
 
 /* ── Contexts ───────────────────────────────────────────── */

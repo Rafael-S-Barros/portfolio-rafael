@@ -24,12 +24,24 @@ export function resolveTheme(stored: string | null, prefersLight: boolean): Them
  * pass and React can never disagree about which theme to show.
  */
 export const themeInitScript = `
-try {
-  var resolve = ${resolveTheme.toString()};
-  var t = resolve(
-    localStorage.getItem(${JSON.stringify(THEME_STORAGE_KEY)}),
-    window.matchMedia(${JSON.stringify(LIGHT_SCHEME_QUERY)}).matches
-  );
-  document.documentElement.setAttribute('data-theme', t);
-} catch (e) {}
+(function () {
+  var key = ${JSON.stringify(THEME_STORAGE_KEY)};
+  function paint(t) { document.documentElement.setAttribute('data-theme', t); }
+  try {
+    var resolve = ${resolveTheme.toString()};
+    paint(resolve(
+      localStorage.getItem(key),
+      window.matchMedia(${JSON.stringify(LIGHT_SCHEME_QUERY)}).matches
+    ));
+  } catch (e) {
+    // Degraded path: if the serialised resolver ever stops being
+    // self-contained it throws here, and swallowing that silently would
+    // reinstate the very bug this script exists to prevent. Honour at least
+    // an explicit choice, and leave the server default otherwise.
+    try {
+      var stored = localStorage.getItem(key);
+      if (stored === 'light' || stored === 'dark') paint(stored);
+    } catch (e2) {}
+  }
+})();
 `;

@@ -53,7 +53,7 @@ function MoonIcon() {
 
 export function SiteHeader() {
   const t = useTranslations();
-  const { theme, toggleTheme } = useTheme();
+  const { toggleTheme } = useTheme();
   const { locale, setLocale } = useLocale();
   const [scrolled, setScrolled] = useState(false);
 
@@ -111,7 +111,16 @@ export function SiteHeader() {
           onClick={toggleTheme}
           aria-label={t("header.toggleTheme")}
         >
-          {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+          {/* Both icons ship; CSS shows the one matching `data-theme`. Driving
+              this from React state would render the wrong icon for the whole
+              hydration pass, since the server cannot know the visitor's OS
+              preference — the same reason the hero and the chips do it here. */}
+          <span className="rb-bg-dark" aria-hidden="true">
+            <SunIcon />
+          </span>
+          <span className="rb-bg-light" aria-hidden="true">
+            <MoonIcon />
+          </span>
         </button>
       </div>
     </header>

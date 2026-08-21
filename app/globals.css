@@ -240,6 +240,11 @@ button:focus-visible {
 .rb-theme-btn:hover {
   border-color: var(--color-accent);
 }
+/* Wraps each icon variant; the `.rb-bg-*` helpers hide the one that does not
+   match the current theme. */
+.rb-theme-btn > span {
+  display: flex;
+}
 
 @media (max-width: 760px) {
   .rb-nav {
