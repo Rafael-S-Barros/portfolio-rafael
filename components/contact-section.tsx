@@ -1,0 +1,75 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+
+import { site } from "@/lib/site";
+import { useReveal } from "./use-reveal";
+
+export function ContactSection() {
+  const t = useTranslations("contato");
+  const { ref, inView } = useReveal<HTMLElement>();
+
+  const links = [
+    {
+      href: `mailto:${site.email}`,
+      key: t("emailKey"),
+      value: site.email,
+      ariaLabel: t("emailAria", { value: site.email }),
+      external: false,
+    },
+    {
+      href: site.github.url,
+      key: t("githubKey"),
+      value: site.github.label,
+      ariaLabel: t("githubAria"),
+      external: true,
+    },
+    {
+      href: site.linkedin.url,
+      key: t("linkedinKey"),
+      value: site.linkedin.label,
+      ariaLabel: t("linkedinAria"),
+      external: true,
+    },
+  ];
+
+  return (
+    <section id="contato" ref={ref} data-inview={inView}>
+      <div className="stack-glow" aria-hidden="true" />
+      <div className="ct-comet" aria-hidden="true" />
+
+      <div className="rb-container">
+        <div className="ct-grid">
+          <div className="ct-col">
+            <h2 className="rv rvd0 ct-title">{t("title")}</h2>
+            <p className="rv rvd2 ct-text">{t("text")}</p>
+          </div>
+
+          <div className="rv rvd3 ct-links">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                className="ct-link"
+                href={link.href}
+                aria-label={link.ariaLabel}
+                {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              >
+                <span className="ct-key">{link.key}</span>
+                <span className="ct-val">{link.value}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <footer className="ct-footer">
+          <span className="ct-logo" aria-hidden="true">
+            {t("logo")}
+          </span>
+          <span className="ct-copy">
+            {site.name} · {new Date().getFullYear()}
+          </span>
+        </footer>
+      </div>
+    </section>
+  );
+}

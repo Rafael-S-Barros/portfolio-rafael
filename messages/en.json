@@ -1,0 +1,68 @@
+{
+  "nav": {
+    "items": [
+      { "href": "#sobre", "label": "About" },
+      { "href": "#projetos", "label": "Projects" },
+      { "href": "#trajetoria", "label": "Background" },
+      { "href": "#contato", "label": "Contact" }
+    ]
+  },
+  "header": {
+    "toggleTheme": "Toggle theme"
+  },
+  "hero": {
+    "role": "Software Developer · React & TypeScript",
+    "ctaPrimary": "View projects",
+    "ctaSecondary": "Download résumé"
+  },
+  "sobre": {
+    "label": "About",
+    "headline": "A bit about me",
+    "text": "Computer Science student with a technical background in Systems Development. Hands-on experience building web apps with React and TypeScript — REST API integration, databases, and collaborative Git workflows with pull requests and code review.",
+    "photoAlt": "Portrait photo of Rafael Barros",
+    "meta": [
+      { "k": "location", "v": "São Paulo, SP · Brazil" },
+      { "k": "education", "v": "Computer Science · Mackenzie" },
+      { "k": "background", "v": "Systems Development Tech. · ETEC" },
+      { "k": "focus", "v": "Front-end · Full stack" },
+      { "k": "languages", "v": "Portuguese native · English advanced" }
+    ]
+  },
+  "stack": {
+    "title": "Skills & Tools"
+  },
+  "projetos": {
+    "label": "Projects",
+    "headline": "Things I've built",
+    "liveAria": "Open {name} live",
+    "ghAria": "{name} on GitHub"
+  },
+  "trajetoria": {
+    "label": "Background",
+    "headline": "How I got here",
+    "items": [
+      { "period": "2020 – 2024", "title": "English as a Second Language", "org": "CCAA" },
+      {
+        "period": "2023 – 2025",
+        "title": "Technical Degree in Systems Development",
+        "org": "ETEC de Praia Grande"
+      },
+      {
+        "period": "2026 – 2029",
+        "title": "BSc in Computer Science",
+        "org": "Universidade Presbiteriana Mackenzie"
+      }
+    ]
+  },
+  "contato": {
+    "title": "Let's build something together?",
+    "text": "Open to front-end or full-stack internship opportunities. If my work resonated with you, I'd love to talk.",
+    "emailKey": "E-mail",
+    "emailAria": "Send an e-mail to {value}",
+    "githubKey": "GitHub",
+    "githubAria": "GitHub profile",
+    "linkedinKey": "LinkedIn",
+    "linkedinAria": "LinkedIn profile",
+    "logo": "logo"
+  }
+}
