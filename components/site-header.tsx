@@ -4,9 +4,8 @@ import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
 import { site } from "@/lib/site";
+import { MobileMenu, type NavItem } from "./mobile-menu";
 import { useLocale, useTheme } from "./providers";
-
-type NavItem = { href: string; label: string };
 
 function SunIcon() {
   return (
@@ -122,6 +121,8 @@ export function SiteHeader() {
             <MoonIcon />
           </span>
         </button>
+
+        <MobileMenu items={navItems} />
       </div>
     </header>
   );

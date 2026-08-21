@@ -1,14 +1,27 @@
 {
   "nav": {
     "items": [
-      { "href": "#sobre", "label": "Sobre" },
-      { "href": "#projetos", "label": "Projetos" },
-      { "href": "#trajetoria", "label": "Trajetória" },
-      { "href": "#contato", "label": "Contato" }
+      {
+        "href": "#sobre",
+        "label": "Sobre"
+      },
+      {
+        "href": "#projetos",
+        "label": "Projetos"
+      },
+      {
+        "href": "#trajetoria",
+        "label": "Trajetória"
+      },
+      {
+        "href": "#contato",
+        "label": "Contato"
+      }
     ]
   },
   "header": {
-    "toggleTheme": "Alternar tema"
+    "toggleTheme": "Alternar tema",
+    "menu": "Menu de navegação"
   },
   "hero": {
     "role": "Desenvolvedor de Software · React & TypeScript",
@@ -21,11 +34,26 @@
     "text": "Estudante de Ciência da Computação, com formação técnica em Desenvolvimento de Sistemas. Experiência prática construindo aplicações web com React e TypeScript — integração com APIs REST, banco de dados e fluxos colaborativos de Git com pull requests e revisão de código.",
     "photoAlt": "Foto de perfil de Rafael Barros",
     "meta": [
-      { "k": "local", "v": "São Paulo, SP · Brasil" },
-      { "k": "formação", "v": "Ciência da Computação · Mackenzie" },
-      { "k": "base", "v": "Téc. Desenvolvimento de Sistemas · ETEC" },
-      { "k": "foco", "v": "Front-end · Full stack" },
-      { "k": "idiomas", "v": "Português nativo · Inglês avançado" }
+      {
+        "k": "local",
+        "v": "São Paulo, SP · Brasil"
+      },
+      {
+        "k": "formação",
+        "v": "Ciência da Computação · Mackenzie"
+      },
+      {
+        "k": "base",
+        "v": "Téc. Desenvolvimento de Sistemas · ETEC"
+      },
+      {
+        "k": "foco",
+        "v": "Front-end · Full stack"
+      },
+      {
+        "k": "idiomas",
+        "v": "Português nativo · Inglês avançado"
+      }
     ]
   },
   "stack": {
@@ -41,7 +69,11 @@
     "label": "Trajetória",
     "headline": "Como cheguei até aqui",
     "items": [
-      { "period": "2020 – 2024", "title": "Inglês como Segundo Idioma", "org": "CCAA" },
+      {
+        "period": "2020 – 2024",
+        "title": "Inglês como Segundo Idioma",
+        "org": "CCAA"
+      },
       {
         "period": "2023 – 2025",
         "title": "Técnico em Desenvolvimento de Sistemas",
