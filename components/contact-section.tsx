@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 import { site } from "@/lib/site";
@@ -66,8 +67,10 @@ export function ContactSection() {
         </div>
 
         <footer className="ct-footer">
-          <span className="ct-logo" aria-hidden="true">
-            {t("logo")}
+          {/* This band is dark in both themes, so it always takes the
+              dark-theme variant — same rule as the stack chips. */}
+          <span className="ct-logo">
+            <Image src="/logo/logo-dark.png" alt={site.name} width={32} height={32} />
           </span>
           <span className="ct-copy">
             {site.name} · {new Date().getFullYear()}

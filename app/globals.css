@@ -171,13 +171,18 @@ button:focus-visible {
 }
 
 .rb-brand {
-  font-family: var(--font-display), "Space Grotesk", sans-serif;
-  font-weight: 700;
-  font-size: 18px;
-  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  /* Kills the inline-image baseline gap that would offset the header. */
+  line-height: 0;
+  transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .rb-brand:hover {
-  color: var(--color-accent);
+  opacity: 0.75;
+}
+.rb-brand img {
+  width: 32px;
+  height: 32px;
 }
 
 .rb-nav {
@@ -1338,15 +1343,11 @@ button:focus-visible {
 .ct-logo {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 96px;
+  line-height: 0;
+}
+.ct-logo img {
+  width: 32px;
   height: 32px;
-  border: 1px dashed var(--color-border);
-  border-radius: 6px;
-  font-family: var(--font-mono), "JetBrains Mono", monospace;
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  color: var(--color-muted);
 }
 .ct-copy {
   font-family: var(--font-mono), "JetBrains Mono", monospace;
