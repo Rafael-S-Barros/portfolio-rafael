@@ -1,3 +1,28 @@
+import type { Locale } from "./i18n";
+
+type ResumeFile = {
+  /** Path under `public/` — case-sensitive once deployed. */
+  href: string;
+  /** What the browser saves it as, so it must read well in the target language. */
+  fileName: string;
+};
+
+/**
+ * One CV per locale. Typed as a full `Record`, so adding a locale to `lib/i18n`
+ * fails the type check here until its CV exists — rather than silently handing
+ * a visitor the wrong language.
+ */
+const resume: Record<Locale, ResumeFile> = {
+  pt: {
+    href: "/Rafael_Curriculo_PT.pdf",
+    fileName: "Rafael_Curriculo_PT.pdf",
+  },
+  en: {
+    href: "/Rafael_Resume_EN.pdf",
+    fileName: "Rafael_Resume_EN.pdf",
+  },
+};
+
 export const site = {
   name: "Rafael Barros",
   email: "rafaelbarros0511445@gmail.com",
@@ -9,10 +34,7 @@ export const site = {
     url: "https://linkedin.com/in/rafael-barros-67a24b3b0",
     label: "linkedin.com/in/rafael-barros-67a24b3b0",
   },
-  resume: {
-    href: "/Rafael_Curriculo_PT.pdf",
-    fileName: "Rafael_Curriculo_PT.pdf",
-  },
+  resume,
 } as const;
 
 /**
