@@ -1,14 +1,27 @@
 {
   "nav": {
     "items": [
-      { "href": "#sobre", "label": "About" },
-      { "href": "#projetos", "label": "Projects" },
-      { "href": "#trajetoria", "label": "Background" },
-      { "href": "#contato", "label": "Contact" }
+      {
+        "href": "#sobre",
+        "label": "About"
+      },
+      {
+        "href": "#projetos",
+        "label": "Projects"
+      },
+      {
+        "href": "#trajetoria",
+        "label": "Background"
+      },
+      {
+        "href": "#contato",
+        "label": "Contact"
+      }
     ]
   },
   "header": {
-    "toggleTheme": "Toggle theme"
+    "toggleTheme": "Toggle theme",
+    "menu": "Navigation menu"
   },
   "hero": {
     "role": "Software Developer · React & TypeScript",
@@ -21,11 +34,26 @@
     "text": "Computer Science student with a technical background in Systems Development. Hands-on experience building web apps with React and TypeScript — REST API integration, databases, and collaborative Git workflows with pull requests and code review.",
     "photoAlt": "Portrait photo of Rafael Barros",
     "meta": [
-      { "k": "location", "v": "São Paulo, SP · Brazil" },
-      { "k": "education", "v": "Computer Science · Mackenzie" },
-      { "k": "background", "v": "Systems Development Tech. · ETEC" },
-      { "k": "focus", "v": "Front-end · Full stack" },
-      { "k": "languages", "v": "Portuguese native · English advanced" }
+      {
+        "k": "location",
+        "v": "São Paulo, SP · Brazil"
+      },
+      {
+        "k": "education",
+        "v": "Computer Science · Mackenzie"
+      },
+      {
+        "k": "background",
+        "v": "Systems Development Tech. · ETEC"
+      },
+      {
+        "k": "focus",
+        "v": "Front-end · Full stack"
+      },
+      {
+        "k": "languages",
+        "v": "Portuguese native · English advanced"
+      }
     ]
   },
   "stack": {
@@ -41,7 +69,11 @@
     "label": "Background",
     "headline": "How I got here",
     "items": [
-      { "period": "2020 – 2024", "title": "English as a Second Language", "org": "CCAA" },
+      {
+        "period": "2020 – 2024",
+        "title": "English as a Second Language",
+        "org": "CCAA"
+      },
       {
         "period": "2023 – 2025",
         "title": "Technical Degree in Systems Development",
