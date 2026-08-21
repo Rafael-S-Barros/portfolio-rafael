@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
@@ -67,8 +68,26 @@ export function SiteHeader() {
 
   return (
     <header id="rb-header" data-scrolled={scrolled ? "1" : "0"}>
-      <a href="#" className="rb-brand">
-        {site.name}
+      {/* Both variants ship; the `.rb-bg-*` helpers show the one matching the
+          theme. The link carries the accessible name, so the images are
+          decorative. */}
+      <a href="#" className="rb-brand" aria-label={site.name}>
+        <Image
+          className="rb-bg-dark"
+          src="/logo/logo-dark.png"
+          alt=""
+          width={32}
+          height={32}
+          priority
+        />
+        <Image
+          className="rb-bg-light"
+          src="/logo/logo-light.png"
+          alt=""
+          width={32}
+          height={32}
+          priority
+        />
       </a>
 
       <nav className="rb-nav">
