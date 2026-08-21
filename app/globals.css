@@ -122,14 +122,21 @@ button:focus-visible {
   width: 100%;
 }
 
-/* Theme-scoped visibility helpers, also re-targeted inside the dark bands. */
-.rb-bg-light {
+/* Theme-scoped visibility helpers, also re-targeted inside the dark bands.
+
+   The class is doubled on purpose. These rules fight component classes that
+   set `display` on the same element — `.chip-ic` is one — and with a single
+   class the specificities tie, so whichever is declared later wins. That is
+   how the dark theme ended up drawing both icon variants on every skill chip.
+   Doubling lifts these to (0,2,0) so they win on specificity instead of on
+   source order, and stay correct wherever they sit in the file. */
+.rb-bg-light.rb-bg-light {
   display: none;
 }
-[data-theme="light"] .rb-bg-light {
+[data-theme="light"] .rb-bg-light.rb-bg-light {
   display: flex;
 }
-[data-theme="light"] .rb-bg-dark {
+[data-theme="light"] .rb-bg-dark.rb-bg-dark {
   display: none;
 }
 
@@ -655,11 +662,12 @@ button:focus-visible {
   color: var(--color-text);
   white-space: nowrap;
 }
-/* The stack band stays dark in both themes, so it keeps the dark-mode icons. */
-[data-theme="light"] #stack .rb-bg-light {
+/* The stack band stays dark in both themes, so it keeps the dark-mode icons.
+   Classes doubled to match the base helpers — see the note next to them. */
+[data-theme="light"] #stack .rb-bg-light.rb-bg-light {
   display: none;
 }
-[data-theme="light"] #stack .rb-bg-dark {
+[data-theme="light"] #stack .rb-bg-dark.rb-bg-dark {
   display: flex;
 }
 
