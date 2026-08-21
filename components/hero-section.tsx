@@ -4,9 +4,12 @@ import { useTranslations } from "next-intl";
 
 import { site } from "@/lib/site";
 import { ImageSlot } from "./image-slot";
+import { useLocale } from "./providers";
 
 export function HeroSection() {
   const t = useTranslations("hero");
+  const { locale } = useLocale();
+  const resume = site.resume[locale];
 
   return (
     <main className="hero">
@@ -28,8 +31,8 @@ export function HeroSection() {
             {t("ctaPrimary")}
           </a>
           <a
-            href={site.resume.href}
-            download={site.resume.fileName}
+            href={resume.href}
+            download={resume.fileName}
             className="btn btn-secondary"
           >
             {t("ctaSecondary")}
