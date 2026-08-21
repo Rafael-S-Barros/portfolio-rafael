@@ -17,10 +17,20 @@ import {
   messages,
   type Locale,
 } from "@/lib/i18n";
+import {
+  LIGHT_SCHEME_QUERY,
+  resolveTheme,
+  THEME_STORAGE_KEY,
+  type Theme,
+} from "@/lib/theme";
 
-export type Theme = "dark" | "light";
+export type { Theme };
 
-const THEME_STORAGE_KEY = "rb-theme";
+/**
+ * What the server renders. The inline script in the layout has already painted
+ * the real theme by the time this matters, and the client snapshot corrects the
+ * React tree right after hydration.
+ */
 const defaultTheme: Theme = "dark";
 
 /* ── localStorage as an external store ──────────────────────
@@ -40,14 +50,22 @@ function subscribe(onStoreChange: () => void) {
   listeners.add(onStoreChange);
   // `storage` fires when another tab changes the preference.
   window.addEventListener("storage", onStoreChange);
+  // Follows the OS live, but only matters while no explicit choice is stored:
+  // with one stored, `readTheme` ignores the query and the snapshot is stable.
+  const lightScheme = window.matchMedia(LIGHT_SCHEME_QUERY);
+  lightScheme.addEventListener("change", onStoreChange);
   return () => {
     listeners.delete(onStoreChange);
     window.removeEventListener("storage", onStoreChange);
+    lightScheme.removeEventListener("change", onStoreChange);
   };
 }
 
 function readTheme(): Theme {
-  return localStorage.getItem(THEME_STORAGE_KEY) === "light" ? "light" : "dark";
+  return resolveTheme(
+    localStorage.getItem(THEME_STORAGE_KEY),
+    window.matchMedia(LIGHT_SCHEME_QUERY).matches,
+  );
 }
 
 function readLocale(): Locale {
