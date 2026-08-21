@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 
 import { stackChips } from "@/lib/site";
-import { useReveal } from "./use-reveal";
+import { revealDelay, useReveal } from "./use-reveal";
 
 export function StackSection() {
   const t = useTranslations("stack");
@@ -19,18 +19,23 @@ export function StackSection() {
 
         <div className="stack-chips">
           {stackChips.map((chip, i) => (
-            <div key={chip.label} className={`rv sk-chip rvd${i}`}>
-              <span
-                className="chip-ic rb-bg-dark"
-                aria-hidden="true"
-                style={{ backgroundImage: `url(${chip.iconDark})` }}
-              />
-              <span
-                className="chip-ic rb-bg-light"
-                aria-hidden="true"
-                style={{ backgroundImage: `url(${chip.iconLight})` }}
-              />
-              <span className="chip-label">{chip.label}</span>
+            // The reveal sits on a wrapper: it animates `transform`, and so
+            // does the chip's hover lift. One transition-delay cannot serve
+            // both a staggered entrance and an instant hover.
+            <div key={chip.label} className="rv" style={revealDelay(i)}>
+              <div className="sk-chip">
+                <span
+                  className="chip-ic rb-bg-dark"
+                  aria-hidden="true"
+                  style={{ backgroundImage: `url(${chip.iconDark})` }}
+                />
+                <span
+                  className="chip-ic rb-bg-light"
+                  aria-hidden="true"
+                  style={{ backgroundImage: `url(${chip.iconLight})` }}
+                />
+                <span className="chip-label">{chip.label}</span>
+              </div>
             </div>
           ))}
         </div>
