@@ -13,6 +13,7 @@ type ResumeFile = {
  * a visitor the wrong language.
  */
 const resume: Record<Locale, ResumeFile> = {
+  fr: { href: "/nao-existe.pdf", fileName: "nao-existe.pdf" },
   pt: {
     href: "/Rafael_Curriculo_PT.pdf",
     fileName: "Rafael_Curriculo_PT.pdf",
