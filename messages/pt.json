@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "items": [
+      {
+        "href": "#sobre",
+        "label": "Sobre"
+      },
+      {
+        "href": "#projetos",
+        "label": "Projetos"
+      },
+      {
+        "href": "#trajetoria",
+        "label": "Trajetória"
+      },
+      {
+        "href": "#contato",
+        "label": "Contato"
+      }
+    ]
+  },
+  "header": {
+    "toggleTheme": "Alternar tema",
+    "menu": "Menu de navegação"
+  },
+  "hero": {
+    "role": "Desenvolvedor de Software · React & TypeScript",
+    "ctaPrimary": "Ver projetos",
+    "ctaSecondary": "Baixar currículo"
+  },
+  "sobre": {
+    "label": "Sobre",
+    "headline": "Um pouco sobre mim",
+    "text": "Estudante de Ciência da Computação, com formação técnica em Desenvolvimento de Sistemas. Experiência prática construindo aplicações web com React e TypeScript — integração com APIs REST, banco de dados e fluxos colaborativos de Git com pull requests e revisão de código.",
+    "photoAlt": "Foto de perfil de Rafael Barros",
+    "meta": [
+      {
+        "k": "local",
+        "v": "São Paulo, SP · Brasil"
+      },
+      {
+        "k": "formação",
+        "v": "Ciência da Computação · Mackenzie"
+      },
+      {
+        "k": "base",
+        "v": "Téc. Desenvolvimento de Sistemas · ETEC"
+      },
+      {
+        "k": "foco",
+        "v": "Front-end · Full stack"
+      },
+      {
+        "k": "idiomas",
+        "v": "Português nativo · Inglês avançado"
+      }
+    ]
+  },
+  "stack": {
+    "title": "Skills & Tools"
+  },
+  "projetos": {
+    "label": "Projetos",
+    "headline": "Coisas que eu construí",
+    "liveAria": "Abrir {name} ao vivo",
+    "ghAria": "{name} no GitHub"
+  },
+  "trajetoria": {
+    "label": "Trajetória",
+    "headline": "Como cheguei até aqui",
+    "items": [
+      {
+        "period": "2020 – 2024",
+        "title": "Inglês como Segundo Idioma",
+        "org": "CCAA"
+      },
+      {
+        "period": "2023 – 2025",
+        "title": "Técnico em Desenvolvimento de Sistemas",
+        "org": "ETEC de Praia Grande"
+      },
+      {
+        "period": "2026 – 2029",
+        "title": "Bacharelado em Ciência da Computação",
+        "org": "Universidade Presbiteriana Mackenzie"
+      }
+    ]
+  },
+  "contato": {
+    "title": "Vamos trabalhar juntos?",
+    "text": "Aberto a oportunidades de estágio em front-end ou full stack. Se o meu trabalho fez sentido pra você, seria ótimo conversar.",
+    "emailKey": "E-mail",
+    "emailAria": "Enviar e-mail para {value}",
+    "githubKey": "GitHub",
+    "githubAria": "Perfil no GitHub",
+    "linkedinKey": "LinkedIn",
+    "linkedinAria": "Perfil no LinkedIn"
+  }
+}

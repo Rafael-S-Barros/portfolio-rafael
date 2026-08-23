@@ -1,0 +1,39 @@
+name: CI
+
+# Roda nos PRs para as duas branches de integração, e também nos pushes
+# diretos — a develop já recebeu commit direto antes de o fluxo de PR existir.
+on:
+  pull_request:
+    branches: [develop, main]
+  push:
+    branches: [develop, main]
+
+# Um PR com vários pushes seguidos cancela as execuções antigas em vez de
+# enfileirar todas.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verificar:
+    name: Lint e build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # O Next 16 exige >=20.9. Fixado na major para o CI não mudar de
+          # versão sozinho no meio de um PR.
+          node-version: '24'
+          cache: npm
+
+      # `ci` em vez de `install`: instala exatamente o que está no lockfile e
+      # falha se o package.json tiver divergido dele.
+      - run: npm ci
+
+      - run: npm run lint
+
+      # `next build` roda o TypeScript, então isto também é o type check.
+      - run: npm run build
