@@ -38,32 +38,31 @@ export const site = {
 } as const;
 
 /**
- * Skill chips. `dark`/`light` name the file under `public/icons/` when a brand
- * mark needs a different variant per theme — GitHub's is the only one.
+ * Skill chips. `icon` names a file under `public/icons/`.
  *
  * The SVGs are vendored from simple-icons (CC0) with the brand colour baked in,
  * rather than fetched from cdn.simpleicons.org at runtime: a corporate network
  * that blocks the CDN would otherwise render this whole section as bare labels.
+ *
+ * One mark per chip: the Stack band is dark in both themes, so there is no
+ * light-theme variant to swap to.
  */
-type ChipSpec = { label: string; slug?: string; dark?: string; light?: string };
+type ChipSpec = { label: string; icon: string };
 
 const chipSpecs: ChipSpec[] = [
-  { label: "React", slug: "react" },
-  { label: "Git", slug: "git" },
-  { label: "GitHub", dark: "github-dark", light: "github-light" },
-  { label: "TypeScript", slug: "typescript" },
-  { label: "JavaScript", slug: "javascript" },
-  { label: "HTML5", slug: "html5" },
-  { label: "CSS3", slug: "css" },
-  { label: "Tailwind CSS", slug: "tailwindcss" },
-  { label: "Python", slug: "python" },
-  { label: "Claude Code", slug: "claude" },
+  { label: "React", icon: "react" },
+  { label: "Git", icon: "git" },
+  { label: "GitHub", icon: "github" },
+  { label: "TypeScript", icon: "typescript" },
+  { label: "JavaScript", icon: "javascript" },
+  { label: "HTML5", icon: "html5" },
+  { label: "CSS3", icon: "css" },
+  { label: "Tailwind CSS", icon: "tailwindcss" },
+  { label: "Python", icon: "python" },
+  { label: "Claude Code", icon: "claude" },
 ];
-
-const iconBase = "/icons/";
 
 export const stackChips = chipSpecs.map((chip) => ({
   label: chip.label,
-  iconDark: `${iconBase}${chip.dark ?? chip.slug}.svg`,
-  iconLight: `${iconBase}${chip.light ?? chip.slug}.svg`,
+  icon: `/icons/${chip.icon}.svg`,
 }));

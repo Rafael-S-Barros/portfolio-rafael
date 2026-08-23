@@ -25,14 +25,9 @@ export function StackSection() {
             <div key={chip.label} className="rv" style={revealDelay(i)}>
               <div className="sk-chip">
                 <span
-                  className="chip-ic rb-bg-dark"
+                  className="chip-ic"
                   aria-hidden="true"
-                  style={{ backgroundImage: `url(${chip.iconDark})` }}
-                />
-                <span
-                  className="chip-ic rb-bg-light"
-                  aria-hidden="true"
-                  style={{ backgroundImage: `url(${chip.iconLight})` }}
+                  style={{ backgroundImage: `url(${chip.icon})` }}
                 />
                 <span className="chip-label">{chip.label}</span>
               </div>
