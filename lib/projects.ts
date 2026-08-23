@@ -31,7 +31,7 @@ export const projects: Project[] = [
     repo: "https://github.com/guilhermerezende10/FitMeta",
     demo: "https://fitmeta.com.br",
     urlLabel: "fitmeta.com.br",
-    image: null,
+    image: "/projects/fitmeta.webp",
     imageAlt: {
       pt: "Screenshot do FitMeta — aplicação de gerenciamento de treinos",
       en: "FitMeta screenshot — workout management app",
@@ -47,7 +47,7 @@ export const projects: Project[] = [
     stack: ["React", "TypeScript", "Ollama", "Vite"],
     repo: "https://github.com/guilhermerezende10/documentation-creator",
     urlLabel: "Docgen",
-    image: null,
+    image: "/projects/docgen.webp",
     imageAlt: {
       pt: "Screenshot do Docgen — gerador de documentação técnica",
       en: "Docgen screenshot — technical documentation generator",

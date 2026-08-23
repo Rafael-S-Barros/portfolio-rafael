@@ -25,7 +25,11 @@ export function AboutSection() {
           <div className="sobre-col">
             <div className="rv sobre-photo" style={revealDelay(0)}>
               <div className="sobre-photo-frame">
-                <ImageSlot alt={photoAlt} sizes="(max-width: 760px) 100vw, 380px" />
+                <ImageSlot
+                  src="/sobre/rafael.webp"
+                  alt={photoAlt}
+                  sizes="(max-width: 760px) 100vw, 380px"
+                />
               </div>
             </div>
             <p className="rv sobre-text" style={revealDelay(1)}>
