@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfólio — Rafael Barros
 
-## Getting Started
+Site pessoal de página única, bilíngue PT/EN, com tema claro e escuro. Feito para
+recrutadores técnicos e engenheiros de software, com o objetivo de conseguir
+estágio em desenvolvimento front-end ou full stack.
 
-First, run the development server:
+Seções: hero, Sobre, Stack, Projetos, Trajetória e Contato.
+
+## Stack
+
+| | |
+|---|---|
+| Framework | Next.js 16 (App Router) |
+| UI | React 19 |
+| Estilo | Tailwind CSS v4 + CSS próprio em `app/globals.css` |
+| i18n | next-intl |
+| Animação | motion |
+| Linguagem | TypeScript |
+
+O visual foi portado de um design feito no Claude Design. Os estilos ficam em
+classes CSS com os valores exatos do design, não em utilitários do Tailwind —
+as animações (cometas, timeline por scroll, reveals escalonados) dependem de
+valores específicos demais para traduzir sem perda. O Tailwind está ativo e os
+tokens de design vivem no bloco `@theme inline` do `globals.css`.
+
+## Rodando localmente
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre em http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Script | O que faz |
+|---|---|
+| `npm run dev` | Servidor de desenvolvimento |
+| `npm run build` | Build de produção |
+| `npm run start` | Serve o build |
+| `npm run lint` | ESLint (desde o Next 16, o `build` não roda o linter sozinho) |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Onde mexer no conteúdo
 
-## Learn More
+Quase tudo que muda com frequência está fora dos componentes:
 
-To learn more about Next.js, take a look at the following resources:
+| Arquivo | Conteúdo |
+|---|---|
+| `lib/projects.ts` | Os projetos: nome, descrição por idioma, stack, links, screenshot |
+| `messages/pt.json` / `messages/en.json` | Todo o texto da interface |
+| `lib/site.ts` | Contato, currículos e os chips da seção Stack |
+| `public/` | Currículos em PDF, imagens do hero, ícones da stack, logo |
+| `app/icon.png` / `app/apple-icon.png` | Favicon e ícone de tela inicial |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Adicionando um projeto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Basta um objeto novo em `lib/projects.ts`. O campo `image` aponta para um
+arquivo em `public/`; enquanto for `null`, o slot mostra um placeholder com o
+texto alternativo, então dá para subir o projeto antes de ter o screenshot.
 
-## Deploy on Vercel
+### Traduções
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`lib/i18n.ts` tipa `en.json` contra a forma do `pt.json`. Uma chave adicionada
+só num dos idiomas **quebra o type check** — é proposital, evita texto faltando
+em produção.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Idioma fora da URL
+
+O toggle PT/EN é instantâneo e não navega — escolha deliberada, herdada do
+design. Em troca, o `lang` do HTML sai como `pt-BR` no servidor e só é corrigido
+após a hidratação, e a versão em inglês não é indexável. É decisão, não bug.
+
+## Convenções
+
+- Branch a partir de `develop`, PR, merge. Nunca commit direto em `develop` ou `main`.
+- Conventional commits, mensagens em português.
+- Trabalho rastreado em issues; o PR referencia a issue que fecha.
