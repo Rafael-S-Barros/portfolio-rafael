@@ -897,8 +897,11 @@ button:focus-visible {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+/* 16:9 acompanha a proporção nativa de captura de tela. Em 16:10 o
+   `object-fit: cover` comeria 5% de cada lateral, e nos dois screenshots isso
+   cai justamente sobre conteúdo: a sidebar do FitMeta e o cabeçalho do Docgen. */
 .pj-shot {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   position: relative;
 }
 .pj-text {
