@@ -749,15 +749,6 @@ button:focus-visible {
   color: var(--color-text);
   white-space: nowrap;
 }
-/* The stack band stays dark in both themes, so it keeps the dark-mode icons.
-   Classes doubled to match the base helpers — see the note next to them. */
-[data-theme="light"] #stack .rb-bg-light.rb-bg-light {
-  display: none;
-}
-[data-theme="light"] #stack .rb-bg-dark.rb-bg-dark {
-  display: flex;
-}
-
 .stack-comet {
   position: absolute;
   inset: -1px;
