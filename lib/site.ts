@@ -38,28 +38,32 @@ export const site = {
 } as const;
 
 /**
- * Skill chips. `dark`/`light` are simpleicons slugs with an explicit hex when a
- * brand mark needs a different colour per theme (GitHub's mark is the only one).
+ * Skill chips. `dark`/`light` name the file under `public/icons/` when a brand
+ * mark needs a different variant per theme — GitHub's is the only one.
+ *
+ * The SVGs are vendored from simple-icons (CC0) with the brand colour baked in,
+ * rather than fetched from cdn.simpleicons.org at runtime: a corporate network
+ * that blocks the CDN would otherwise render this whole section as bare labels.
  */
 type ChipSpec = { label: string; slug?: string; dark?: string; light?: string };
 
 const chipSpecs: ChipSpec[] = [
-  { label: "React", slug: "react/61DAFB" },
-  { label: "Git", slug: "git/F05032" },
-  { label: "GitHub", dark: "github/FFFFFF", light: "github/181717" },
-  { label: "TypeScript", slug: "typescript/3178C6" },
-  { label: "JavaScript", slug: "javascript/F7DF1E" },
-  { label: "HTML5", slug: "html5/E34F26" },
-  { label: "CSS3", slug: "css/663399" },
-  { label: "Tailwind CSS", slug: "tailwindcss/06B6D4" },
-  { label: "Python", slug: "python/3776AB" },
-  { label: "Claude Code", slug: "claude/D97757" },
+  { label: "React", slug: "react" },
+  { label: "Git", slug: "git" },
+  { label: "GitHub", dark: "github-dark", light: "github-light" },
+  { label: "TypeScript", slug: "typescript" },
+  { label: "JavaScript", slug: "javascript" },
+  { label: "HTML5", slug: "html5" },
+  { label: "CSS3", slug: "css" },
+  { label: "Tailwind CSS", slug: "tailwindcss" },
+  { label: "Python", slug: "python" },
+  { label: "Claude Code", slug: "claude" },
 ];
 
-const iconBase = "https://cdn.simpleicons.org/";
+const iconBase = "/icons/";
 
 export const stackChips = chipSpecs.map((chip) => ({
   label: chip.label,
-  iconDark: iconBase + (chip.dark ?? chip.slug),
-  iconLight: iconBase + (chip.light ?? chip.slug),
+  iconDark: `${iconBase}${chip.dark ?? chip.slug}.svg`,
+  iconLight: `${iconBase}${chip.light ?? chip.slug}.svg`,
 }));
