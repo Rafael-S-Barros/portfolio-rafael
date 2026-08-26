@@ -46,6 +46,10 @@ export const site = {
  *
  * One mark per chip: the Stack band is dark in both themes, so there is no
  * light-theme variant to swap to.
+ *
+ * Brands whose mark is black — GitHub, Next.js, Ollama, Vercel — ship white
+ * instead: on a band that is `#141416` in both themes, `#000000` would be
+ * invisible.
  */
 type ChipSpec = { label: string; icon: string };
 
@@ -60,6 +64,13 @@ const chipSpecs: ChipSpec[] = [
   { label: "Tailwind CSS", icon: "tailwindcss" },
   { label: "Python", icon: "python" },
   { label: "Claude Code", icon: "claude" },
+  { label: "Next.js", icon: "nextdotjs" },
+  { label: "C", icon: "c" },
+  { label: "C++", icon: "cplusplus" },
+  { label: "Supabase", icon: "supabase" },
+  { label: "Ollama", icon: "ollama" },
+  { label: "Vite", icon: "vite" },
+  { label: "Vercel", icon: "vercel" },
 ];
 
 export const stackChips = chipSpecs.map((chip) => ({
